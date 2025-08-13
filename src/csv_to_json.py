@@ -44,7 +44,7 @@ def main():
 
             for row in reader:
                 resource = {
-                    '@context': 'https://schema.org',
+                    '@context': 'http://schema.org',
                     '@type': next(
                         (entry.get("schemaType") for entry in spreadsheet_entries if entry.get("name") == name),
                         None
