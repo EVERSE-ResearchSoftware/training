@@ -3,6 +3,7 @@ import yaml
 import json
 from pathlib import Path
 
+# Colors
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -24,6 +25,8 @@ def main():
         config = yaml.safe_load(f)
 
     spreadsheet_entries = config['spreadsheet']
+
+    # It will not convert the `spreadsheet.name` where `spreadsheet.skip == True`
     skip = []
     for e in spreadsheet_entries:
         if e['skip'] is True:
@@ -32,6 +35,7 @@ def main():
     mapping_list = config['mapping']
     mapping = {item['tess']: item['schema'] for item in mapping_list}
 
+    # For each csv in "./<input_dir>", for each row, it changes it as a json objet
     for csv_file in input_dir.glob('*.csv'):
         name = str(csv_file).removeprefix('csv/').removesuffix('.csv')
         if name in skip:
