@@ -1,0 +1,70 @@
+---
+id: "1Ufa4M024k2GeRzP9t64_P9uofXePyGRRf7LOF5vRWTg"
+spreadsheet:
+  - name: "training_repositories_and_registries"
+    gid: 395425751
+    skip: True
+    schemaType: "Dataset"
+  - name: "training_materials_and_curricula"
+    gid: 448677882
+    skip: False
+    schemaType: "LearningResource"
+  - name: "training_schools_and_events"
+    gid: 1977539885
+    skip: True
+    schemaType: "EducationEvent"
+  - name: "reports_and_publications"
+    gid: 1803858001
+    skip: True
+    schemaType: "Report"
+  - name: "projects"
+    gid: 335696169
+    skip: True
+    schemaType: "Project"
+  - name: "keywords"
+    gid: 2110356097
+    skip: True
+    schemaType: ""
+mapping:
+  - tess: "Title"
+    schema: "name"
+  - tess: "URL"
+    schema: "url"
+  - tess: "Description"
+    schema: "description"
+  - tess: "Resource type(s)"
+    schema: "learningResourceType"
+  - tess: "Scientific Topics"
+    schema: "about"
+  - tess: "Keywords"
+    schema: "keywords"
+  - tess: "Licence"
+    schema: "license"
+  - tess: "Status"
+    schema: "creativeWorkStatus"
+  - tess: "DOI"
+    schema: "identifier"
+  - tess: "Version"
+    schema: "version"
+  - tess: "Authors"
+    schema: "author"
+  - tess: "Contributors"
+    schema: "contributor"
+  - tess: "Target audiences"
+    schema: "audience"
+  - tess: "Prerequisites"
+    schema: "competencyRequired"
+  - tess: "Competency level"
+    schema: "educationalLevel"
+  - tess: "Learning objectives"
+    schema: "teaches"
+  - tess: "Date created"
+    schema: "dateCreated"
+  - tess: "Date modified"
+    schema: "dateModified"
+  - tess: "Date published"
+    schema: "datePublished"
+  - tess: "Nodes"
+    schema: "provider"
+  - tess: "External resources"
+    schema: "mentions"

@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16097921.svg)](https://doi.org/10.5281/zenodo.16097921)
+[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+
 # Training
 
 This repository contains curated collections of training resources (contained in various CSV files) related to research software quality and general software and data skills from different research domains and infrastructures collected as part of the EVERSE project (WP5).
@@ -36,9 +39,58 @@ Collection of [projects and working groups](https://github.com/EVERSE-ResearchSo
 
 Collection of [keywords](https://github.com/EVERSE-ResearchSoftware/training/blob/main/keywords.csv) used to describe and curate various training materials to facilitate searching and tagging in various catalogues.
 
-## Licence
+## Workflow
 
-[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+This repository fetches through GitHub Actions training materials from a Google spreadsheet and translates them into a `.json` file.
+
+### Pre-requisites
+
+- Have a Google spreadsheet. If another spreadhsheet is used: get the ID of your spreadsheet and modify `id` in `src/config.yaml`.
+- Have a sheet inside it. If another sheet is used than the one provided in `config.yaml`, modify a `spreadsheet:` object or create another one, see below an example.
+
+    ```bash
+    spreadsheet:
+        - name: "my_other_sheet"
+        gid: 123456789
+        skip: False
+        schemaType: "Dataset"
+    ```
+
+- The sheet must have the same column names as `mapping.tess` entries in `src/config.yaml`. E.g., if `mapping.tess` is `Title` then your sheet must have a column called `Title` in order to extract this information.
+
+### Files
+
+```bash
+.
+├── .github
+│   └── workflows
+│       └── update_json.yaml
+└── src
+    ├── config.yaml
+    ├── csv_to_json.py
+    └── download_csv.py
+```
+
+#### `.github/workflows/update_json.yaml`, the main workflow
+
+1. It will run every day at 1:00AM or when a push to the main branch is done
+2. `src/download_csv.py` is called and downloads the sheets of a given Google spreadsheet under a newly created `/csv` directory.
+3. Then `src/csv_to_json.py` takes the csv's in the `/csv` directory, converts them as `.json` files and stores them in a created `/json` directory.
+4. The workflow then add, commits and push the changes to main.
+
+#### `src/config.yaml`, the configuration file
+
+- `id`: Google spreadsheet identifier
+- `spreadsheet`: list of objects {name, gid, skip, schemaType}, each of them representing a sheet of the Google spreadsheet
+- `spreadsheet.name`: name given to the csv file when getting fetched by `download_csv.py`
+- `spreadsheet.gid`: sheet identifier (Google ID)
+- `spreadsheet.skip`: when set to `True`, the `download_csv.py` script will skip the download the `gid` sheet (mainly done for `spreadsheet.name == "keywords"`)
+- `spreadsheet.schemaType`: following [schema.org](https://schema.org/), we gave the appropriate `type` to the kind of materials
+- `mapping`: list of objects {tess, schema} which acts as a dictionnary, `mapping.tess` is the field in TeSS corresponding to `mapping.schema` in schema.org, they are repsectively key-pair values.
+- `mapping.tess`: metadata field known by TeSS, it must match the column names, e.g., if you have column `URLs` instead of `URL` in your Google spreadsheet, please change `mapping.tess` to `URLs` instead of current `URL`
+- `mapping.schema`: metadata field known by schema.org
+
+## Licence
 
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](LICENSE).
 
@@ -55,3 +107,4 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 - [David Chamont](david.chamont@ijclab.in2p3.fr)
 - [Daniel Garijo](daniel.garijo@upm.es)
 - [Stefan Roiser](Stefan.Roiser@cern.ch)
+- [Kenneth Rioja](Kenneth.Brian.Rioja@cern.ch)
