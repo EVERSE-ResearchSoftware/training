@@ -857,5 +857,112 @@
     "about": "sustainability, environment",
     "keywords": "climate science, software design, data center",
     "creativeWorkStatus": "Published"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource",
+    "name": "The Turing Way’s Handbook on Open and Reproducible Research - Testing Research Code Chapter",
+    "url": "https://book.the-turing-way.org/reproducible-research/testing",
+    "description": "The chapter on testing research code in the Turing Way’s Handbook on Open and Reproducible Research elaborates on the motivation for writing tests within research (with some very convincing examples), on many of the topics mentioned above and also adds advice on a few very common research-related topics like how to deal with testing random or stochastic code.",
+    "about": "research software development",
+    "keywords": "code testing, software testing, code correctness, software correctness, testing",
+    "creativeWorkStatus": "Published"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource",
+    "name": "#REF!",
+    "description": "Best practices on how to write a README, this material covers the basic structure, a template, examples as well as advances use cases.",
+    "about": "research software development",
+    "keywords": "readme, markdown, template",
+    "creativeWorkStatus": "Published"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource",
+    "name": "#REF!",
+    "description": "A readme file provides information about a dataset and is intended to help ensure that the data can be correctly interpreted, by yourself at a later date or by others when sharing or publishing data. A readme file must be submitted along with the dataset file(s). The outline below should be completed with information relevant to the submitted dataset",
+    "about": "research software development",
+    "keywords": "readme, markdown",
+    "creativeWorkStatus": "Published"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource",
+    "name": "#REF!",
+    "description": "A command line interface for automatically extracting relevant metadata from code repositories (readme, configuration files, documentation, etc.).",
+    "about": "research software development",
+    "keywords": "readme, markdown",
+    "creativeWorkStatus": "Published"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource",
+    "name": "How to package a Python",
+    "url": "https://py-pkgs.org/03-how-to-package-a-python",
+    "description": "This chapter we will develop an entire example Python package from beginning-to-end to demonstrate the key steps involved in developing a package. (...) Later chapters explore each of the individual steps in the packaging process in further detail",
+    "about": "research software development",
+    "keywords": "package, packaging, release, python, tracking",
+    "creativeWorkStatus": "Published"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource",
+    "name": "Python 201 on Packaging",
+    "url": "https://python-tutorial.dev/201/tutorial/packaging.html#packaging",
+    "description": "This section introduces a simple code example. We will discuss the anatomy of a Python package and how Python looks for and deals with installed assets. Version control (i.e., Git and GitHub) and managing deployed assets (e.g., deploying to PyPI with Twine) are not covered.",
+    "about": "research software development",
+    "keywords": "package, packaging, release, python, tracking",
+    "creativeWorkStatus": "Published"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource",
+    "name": "Managing Academic Software development: Release management",
+    "url": "https://southampton-rsg.github.io/swc-project-novice/04-features/index.html",
+    "description": "This 20 min course will ask the following question: \"How can I manage the release of my code?\". You will be able to create stable releases for software, to generate a DOI for your software, to understand software licenses, and how to apply them.",
+    "about": "research software development",
+    "keywords": "release, doi, license, licence, cite, citation, reproducibility, academic software",
+    "creativeWorkStatus": "Published"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource",
+    "name": "Intermediate Research Software Development – Software Development Using Git and GitHub",
+    "url": "https://carpentries-incubator.github.io/python-intermediate-development/14-collaboration-using-git.html",
+    "description": "This course will teach you the best practices when developing software collaboratively using Git. You will learn how to commit changes in a software project to a local repository and publish them in a remote repository on GitHub; create branches for managing different threads of code development; and learn to use feature branch workflow to effectively collaborate with a team on a software project",
+    "about": "research software development",
+    "keywords": "git, github, collaboration, branch, repository, repo, feature, collaborate, version control",
+    "creativeWorkStatus": "Published"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource",
+    "name": "Intermediate Research Software Development (Python) – 4. Version control",
+    "url": "https://carpentries-incubator.github.io/python-intermediate-development/14-collaboration-using-git.html",
+    "description": "Topics covered in this course are why use version control; solo use of version control; publishing your code to GitHub; collaborating with others through Git; branching, rebasing and Merging; debugging with GitBisect; forks, Pull Requests and the GitHub Flow",
+    "about": "research software development",
+    "keywords": "git, github, collaboration, branch, repository, repo, feature, collaborate, rebase, gitbisect, fork",
+    "creativeWorkStatus": "Published"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource",
+    "name": "“Good Enough Practices in Scientific Computing” course – Keeping Track of Changes",
+    "url": "https://carpentries-lab.github.io/good-enough-practices/06-track_changes.html",
+    "description": "This course will answer this question : How do I make changes to a project without losing or breaking things? You will know more about listing common problems with introducing changes to files without tracking; good practices in tracking changes and you will know how to write a good change description",
+    "about": "research software development",
+    "keywords": "git, github, collaboration, branch, repository, repo, feature, collaborate, version control",
+    "creativeWorkStatus": "Published"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource",
+    "name": "\"Ten Reproducible Research Things\" – 8. Version Control",
+    "url": "https://guereslib.github.io/ten-reproducible-research-things/content/08-version.html",
+    "description": "A version control system allows users to keep track of changes in your data or processes. Are you keeping track of any versions or logs made by the software in use? Make sure you have a copy of every step you have completed and if possible, version numbers for the program you are using and any libraries. Programs change over time and this can alter your results if someone asks to replicate your work post publication.",
+    "about": "research software development",
+    "keywords": "git, github, collaboration, branch, repository, repo, feature, collaborate, version control",
+    "creativeWorkStatus": "Published"
   }
 ]
