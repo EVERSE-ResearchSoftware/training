@@ -871,7 +871,8 @@
   {
     "@context": "http://schema.org",
     "@type": "LearningResource",
-    "name": "#REF!",
+    "name": "Tillburg ScienceHub: README Best Practices",
+    "url": "https://tilburgsciencehub.com/topics/collaborate-share/share-your-work/content-creation/readme-best-practices/",
     "description": "Best practices on how to write a README, this material covers the basic structure, a template, examples as well as advances use cases.",
     "about": "research software development",
     "keywords": "readme, markdown, template",
@@ -880,7 +881,8 @@
   {
     "@context": "http://schema.org",
     "@type": "LearningResource",
-    "name": "#REF!",
+    "name": "4Tu.ResearchData – Guidelines for creating a README file",
+    "url": "https://data.4tu.nl/s/documents/Guidelines_for_creating_a_README_file.pdf",
     "description": "A readme file provides information about a dataset and is intended to help ensure that the data can be correctly interpreted, by yourself at a later date or by others when sharing or publishing data. A readme file must be submitted along with the dataset file(s). The outline below should be completed with information relevant to the submitted dataset",
     "about": "research software development",
     "keywords": "readme, markdown",
@@ -889,7 +891,8 @@
   {
     "@context": "http://schema.org",
     "@type": "LearningResource",
-    "name": "#REF!",
+    "name": "Software Metadata Extraction Framework (SOMEF)",
+    "url": "https://github.com/KnowledgeCaptureAndDiscovery/somef",
     "description": "A command line interface for automatically extracting relevant metadata from code repositories (readme, configuration files, documentation, etc.).",
     "about": "research software development",
     "keywords": "readme, markdown",
