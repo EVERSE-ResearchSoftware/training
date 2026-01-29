@@ -1,10 +1,10 @@
 Resource,Scientific cluster or domain,Software quality dimensions,Resource type,Notes,Title,URL,Description
 "EIROforum WG
 Training and Career Development",General,,project,,"EIROforum WG
-Training and Career Development",https://www.eiroforum.org/about-eiroforum/governance/,WG for Training and Career Development
-"FAIR for Machine Learning Interest Group, RD Alliance",General,FAIRness,project,,"FAIR for Machine Learning Interest Group, RD Alliance",,Working group exploring how the FAIR principles applies to the Machine Learning lifecycle (including software)
-ELIXIR-STEERS,Life sciences,"FAIRness, Functional suitability, Sustainability, Maintainability",project,,ELIXIR-STEERS,https://elixir-europe.org/about-us/how-funded/eu-projects/steers,"ELIXIR-STEERS aims to help life science researchers to access national data sets and conduct large-scale, cross-border analysis of data from across Europe."
-ELIXIR Data Platform,Life sciences,"FAIRness, Functional suitability, Sustainability, Maintainability",project,,ELIXIR Data Platform,https://elixir-europe.org/platforms/data,
+Training and Career Development",Loading...,WG for Training and Career Development
+"FAIR for Machine Learning Interest Group, RD Alliance",General,FAIRness,project,,"FAIR for Machine Learning Interest Group, RD Alliance",Loading...,Working group exploring how the FAIR principles applies to the Machine Learning lifecycle (including software)
+ELIXIR-STEERS,Life sciences,"FAIRness, Functional suitability, Sustainability, Maintainability",project,,ELIXIR-STEERS,Loading...,"ELIXIR-STEERS aims to help life science researchers to access national data sets and conduct large-scale, cross-border analysis of data from across Europe."
+ELIXIR Data Platform,Life sciences,"FAIRness, Functional suitability, Sustainability, Maintainability",project,,ELIXIR Data Platform,Loading...,
 ELIXIR Intrinsically Disordered Proteins Community,Life sciences,,project,,ELIXIR Intrinsically Disordered Proteins Community,https://elixir-europe.org/communities/intrinsically-disordered-proteins,
 "CODECHECK, an approach for
 independent execution of computations underlying research articles",General,"FAIRness, Functional suitability, Interaction capability, Maintainability, Reliability, Sustainability",project,,"CODECHECK, an approach for
@@ -18,5 +18,59 @@ country, organisation, domain and programming language) where research software
 can be registered to help promote its discovery",https://github.com/NLeSC/awesome-research-software-registries,"A list of research software registries (by
 country, organisation, domain and programming language) where research software
 can be registered to help promote its discovery"
-ESCAPE Open-source Scientific Software and Service Repository (OSSR),Particle physics & astronomy,,project,,ESCAPE Open-source Scientific Software and Service Repository (OSSR),https://escape-ossr.gitlab.io/ossr-pages/,"The ESCAPE Open-source Scientific Software and Service Repository (OSSR) is a sustainable open-access repository to share scientific software, services and datasets to the astro-particle-physics-related communities and enable open science"
-The CodeMeta Project,General,"FAIRness, Maintainability, Sustainability",project,,The CodeMeta Project,https://codemeta.github.io/,A guide generate standard metadata files for research software
+ESCAPE Open-source Scientific Software and Service Repository (OSSR),Particle physics & astronomy,,project,,ESCAPE Open-source Scientific Software and Service Repository (OSSR),Loading...,"The ESCAPE Open-source Scientific Software and Service Repository (OSSR) is a sustainable open-access repository to share scientific software, services and datasets to the astro-particle-physics-related communities and enable open science"
+The CodeMeta Project,General,"FAIRness, Maintainability, Sustainability",project,,The CodeMeta Project,Loading...,A guide generate standard metadata files for research software
+,,,,,,,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,,
+,,,,,,Loading...,
+,,,,,,,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
+,,,,,,Loading...,
