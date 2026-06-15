@@ -967,5 +967,13 @@
     "about": "research software development",
     "keywords": "git, github, collaboration, branch, repository, repo, feature, collaborate, version control",
     "creativeWorkStatus": "Published"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LearningResource"
   }
 ]
