@@ -90,6 +90,10 @@ This repository fetches through GitHub Actions training materials from a Google 
 - `mapping.tess`: metadata field known by TeSS, it must match the column names, e.g., if you have column `URLs` instead of `URL` in your Google spreadsheet, please change `mapping.tess` to `URLs` instead of current `URL`
 - `mapping.schema`: metadata field known by schema.org
 
+## Update 2026-10-22
+
+We manually added `csv_manual/keywords_everse_training_20261022` which reflect all keywords found in the EVERSE Training Catalogue on October 22, 2026.
+
 ## Licence
 
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](LICENSE).
