@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Compare the keywords used in RSQKit pages with the training keywords CSV.
+"""Report the training CSV keywords that are NOT used in any RSQKit page.
 
-This script only reports differences: it does not modify any file.
+This is the reverse of detection_keywords_v3.py. It only reports
+differences: it does not modify any file.
 
 Usage (run it from any folder; the script lives in alignment/):
-    python alignment/detection_keywords_v3.py --rsqkit /path/to/RSQKit \
-        [--csv csv/keywords.csv] [--threshold 0.7] [--out keywords_report.csv]
+    python alignment/detection_unused_keywords.py --rsqkit /path/to/RSQKit \
+        [--csv csv/keywords.csv] [--threshold 0.7] [--out unused_keywords_report.csv]
 
 By default the CSV is read from ../csv/keywords.csv (relative to this
 script) and the report is written in the same folder as this script.
@@ -13,26 +14,25 @@ script) and the report is written in the same folder as this script.
 --rsqkit is the RSQKit repository folder: the one that contains pages/, whose
 .md files hold the keywords in their front matter.
 
-Report: one row per distinct keyword that is NOT in the CSV
-(case-insensitive comparison).
-Columns: keyword, suggestion, similarity, related_by_words, num_pages, pages
+Report: one row per CSV keyword that no page uses (case-insensitive
+comparison).
+Columns: keyword, suggestion, similarity, related_by_words
 
-Two kinds of hints are given for each missing keyword:
-  - suggestion / similarity: the closest CSV keyword by spelling (difflib),
-    only if similarity >= threshold (e.g. "containers" vs "container").
-  - related_by_words: CSV keywords whose words are all contained in the
-    keyword, or the other way round (e.g. "citation.cff" contains "cff";
-    "citation" is contained in "code citation").
+The hints point to RSQKit keywords that are NOT in the CSV (the ones that
+do not match anything), because those are the possible variants:
+  - suggestion / similarity: the closest of them by spelling (difflib),
+    only if similarity >= threshold (e.g. "container" vs "containers").
+  - related_by_words: those whose words are all contained in the CSV
+    keyword, or the other way round (e.g. "cff" vs "citation.cff").
 
 Rows are sorted: spelling suggestions first (most similar first), then rows
-with a word relation, then the rest (most used first within each group).
+with a word relation, then the rest in alphabetical order.
 """
 import argparse
 import csv
 import difflib
 import re
 import sys
-from collections import defaultdict
 from pathlib import Path
 
 import yaml
@@ -43,11 +43,11 @@ DEFAULT_THRESHOLD = 0.7
 # Paths relative to this script (it lives in alignment/, next to csv/)
 SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_CSV = SCRIPT_DIR.parent / "csv" / "keywords.csv"
-DEFAULT_OUT = SCRIPT_DIR / "keywords_report.csv"
+DEFAULT_OUT = SCRIPT_DIR / "unused_keywords_report.csv"
 # Comment written as the first row of the report
 REPORT_NOTE = (
     "# NOTE: 'suggestion' (similar spelling) and 'related_by_words' are hints, "
-    "not verdicts. Each missing keyword needs a manual decision."
+    "not verdicts. Each unused keyword needs a manual decision."
 )
 
 
@@ -90,13 +90,13 @@ def words(keyword):
     return {w for w in re.split(r"[^a-z0-9+#]+", keyword.lower()) if w}
 
 
-def related_by_words(kw, training_words):
-    """Return the CSV keywords whose word set is contained in kw's, or vice versa."""
+def related_by_words(kw, candidate_words):
+    """Return the candidates whose word set is contained in kw's, or vice versa."""
     kw_words = words(kw)
     related = []
-    for t, t_words in training_words.items():
-        if t_words and (t_words <= kw_words or kw_words <= t_words):
-            related.append(t)
+    for c, c_words in candidate_words.items():
+        if c_words and (c_words <= kw_words or kw_words <= c_words):
+            related.append(c)
     return sorted(related)
 
 
@@ -117,37 +117,33 @@ def main():
         "--threshold",
         type=threshold_type,
         default=DEFAULT_THRESHOLD,
-        help=f"Minimum similarity (0-1) to suggest a CSV keyword (default: {DEFAULT_THRESHOLD})",
+        help=f"Minimum similarity (0-1) to suggest an RSQKit keyword (default: {DEFAULT_THRESHOLD})",
     )
     a = ap.parse_args()
 
     training = load_training_keywords(a.csv)
-    training_words = {t: words(t) for t in training}
     pages = load_page_keywords(a.rsqkit)
 
-    # Group pages by keyword (lowercase)
-    by_kw = defaultdict(set)
-    for page, kws in pages.items():
-        for kw in kws:
-            by_kw[kw.lower()].add(page)
+    used = {kw.lower() for kws in pages.values() for kw in kws}
+    unused = sorted(training - used)
+    # Candidates for the hints: RSQKit keywords that do not match the CSV
+    candidates = sorted(used - training)
+    candidate_words = {c: words(c) for c in candidates}
 
     rows = []
-    for kw, ps in by_kw.items():
-        if kw in training:
-            continue  # already in the CSV: not reported
+    for kw in unused:
         sugg, sim = "", 0.0
-        close = difflib.get_close_matches(kw, training, n=1, cutoff=a.threshold)
+        close = difflib.get_close_matches(kw, candidates, n=1, cutoff=a.threshold)
         if close:
             sugg = close[0]
             sim = difflib.SequenceMatcher(None, close[0], kw).ratio()
-        rel = related_by_words(kw, training_words)
-        rows.append([kw, len(ps), ";".join(sorted(ps)), sugg, sim, rel])
+        rel = related_by_words(kw, candidate_words)
+        rows.append([kw, sugg, sim, rel])
 
-    # Spelling suggestions first (most similar first), then word relations, then the rest
     # Group 0: spelling suggestion; group 1: only word relation; group 2: the rest
     def sort_key(r):
-        group = 0 if r[3] else (1 if r[5] else 2)
-        return (group, -r[4], -r[1], r[0])
+        group = 0 if r[1] else (1 if r[3] else 2)
+        return (group, -r[2], r[0])
 
     rows.sort(key=sort_key)
 
@@ -155,16 +151,16 @@ def main():
         w = csv.writer(f)
         # First row is a comment (starts with '#'), before the header
         w.writerow([REPORT_NOTE])
-        w.writerow(["keyword", "suggestion", "similarity", "related_by_words", "num_pages", "pages"])
-        for kw, n, ps, sugg, sim, rel in rows:
-            w.writerow([kw, sugg, f"{sim:.2f}" if sugg else "", ";".join(rel), n, ps])
+        w.writerow(["keyword in md not in csv", "suggestion", "similarity", "related_by_words"])
+        for kw, sugg, sim, rel in rows:
+            w.writerow([kw, sugg, f"{sim:.2f}" if sugg else "", ";".join(rel)])
 
-    n_sugg = sum(1 for r in rows if r[3])
-    n_rel = sum(1 for r in rows if r[5])
+    n_sugg = sum(1 for r in rows if r[1])
+    n_rel = sum(1 for r in rows if r[3])
     print(f"Pages with keywords: {len(pages)}")
-    print(f"Distinct keywords in RSQKit: {len(by_kw)} -> in CSV: {len(by_kw) - len(rows)}, missing: {len(rows)}")
-    print(f"Threshold: {a.threshold} -> missing keywords with a similar spelling in the CSV: {n_sugg}")
-    print(f"Missing keywords related by words to a CSV keyword: {n_rel}")
+    print(f"Keywords in CSV: {len(training)} -> used in RSQKit: {len(training) - len(unused)}, unused: {len(unused)}")
+    print(f"Threshold: {a.threshold} -> unused keywords with a similar spelling in RSQKit: {n_sugg}")
+    print(f"Unused keywords related by words to an RSQKit keyword: {n_rel}")
     print(f"Report written to: {a.out}")
 
 

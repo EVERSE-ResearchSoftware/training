@@ -145,7 +145,7 @@ def main():
         w = csv.writer(f)
         # First row is a comment (starts with '#'), before the header
         w.writerow([REPORT_NOTE])
-        w.writerow(["keyword", "suggestion", "similarity", "related_by_words"])
+        w.writerow(["keyword in csv not in md", "suggestion", "similarity", "related_by_words"])
         for kw, sugg, sim, rel in rows:
             w.writerow([kw, sugg, f"{sim:.2f}" if sugg else "", ";".join(rel)])
 

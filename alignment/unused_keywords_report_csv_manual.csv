@@ -1,5 +1,5 @@
 "# NOTE: 'suggestion' (similar spelling) and 'related_by_words' are hints, not verdicts. Each unused keyword needs a manual decision."
-keyword,suggestion,similarity,related_by_words
+keyword in csv not in md,suggestion,similarity,related_by_words
 computational workflows,computational workflow,0.98,
 container,containers,0.95,
 software development,software deployment,0.87,
