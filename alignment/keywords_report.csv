@@ -1,0 +1,81 @@
+"# NOTE: 'suggestion' (similar spelling) and 'related_by_words' are hints, not verdicts. Each missing keyword needs a manual decision."
+keyword,suggestion,similarity,related_by_words,num_pages,pages
+gitlab ci/cd,gitlab cicd,0.96,cd;ci;ci cd;ci/cd;gitlab,1,pages/tasks/task_automation_gitlab_ci_cd.md
+containers,container,0.95,,1,pages/tasks/using_containers.md
+research software engineer,research software engineering,0.95,,1,pages/tasks/credit_recognition_research_software.md
+research software,research infra software,0.85,research infra software;research software engineering,1,pages/tasks/writing_research_software_stories.md
+code documentation,documentation,0.84,documentation,2,pages/tasks/documenting_code.md;pages/tasks/documenting_software_project.md
+software version,software testing,0.81,,1,pages/tasks/software_identifiers.md
+task automation,automation,0.80,automation,2,pages/tasks/task_automation_github_actions.md;pages/tasks/task_automation_gitlab_ci_cd.md
+static analysis,statistic code analysis,0.79,,2,pages/tasks/research_software_security.md;pages/tasks/static_analysis.md
+archiving software,packaging software,0.78,,1,pages/tasks/archiving_software.md
+research software security,research software engineering,0.76,security,1,pages/tasks/research_software_security.md
+citation,code citation,0.76,code citation;software citation,3,pages/tasks/citing_software.md;pages/tasks/creating_good_readme.md;pages/tasks/credit_recognition_research_software.md
+software release,software test,0.76,release;release software,1,pages/tasks/software_identifiers.md
+software preservation,software testing,0.76,,1,pages/tasks/archiving_software.md
+software sustainability,sustainability,0.76,sustainability,1,pages/tasks/writing_research_software_stories.md
+rse,reuse,0.75,,1,pages/tasks/credit_recognition_research_software.md
+software deployment,software project,0.74,,1,pages/tasks/using_containers.md
+research software stories,research software engineering,0.74,,1,pages/tasks/writing_research_software_stories.md
+research software story,research infra software,0.74,,1,pages/tasks/writing_research_software_stories.md
+environment,virtual environment,0.73,collaborative environment;integrated development environment;reproducible environment;virtual environment,1,pages/tasks/improving_environmental_sustainability.md
+portability,reusability,0.73,,1,pages/tasks/using_containers.md
+containerization,container,0.72,,1,pages/tasks/using_containers.md
+software identifier,software engineering,0.72,,1,pages/tasks/software_identifiers.md
+best practices,good practices,0.71,,1,pages/tasks/software_management_planning.md
+fair software,better software,0.71,fair,1,pages/tasks/fair_rs.md
+software packaging,software testing,0.71,packaging;packaging software,1,pages/tasks/using_containers.md
+research software management,research software engineering,0.70,,1,pages/tasks/software_management_planning.md
+bibliographic metadata,,,metadata,1,pages/tasks/complete_software_metadata_codemeta.md
+citation.cff,,,cff,1,pages/tasks/credit_recognition_research_software.md
+github actions,,,github,1,pages/tasks/task_automation_github_actions.md
+performance,,,performance efficiency,1,pages/tasks/performance_profiling_and_optimization.md
+security scanning,,,security,1,pages/tasks/static_analysis.md
+ai as an assistant,,,,18,pages/ai.md;pages/ai/ai_intensity_considerations.md;pages/ai/ai_usecases_across_the_spectrum.md;pages/ai/cross_cutting_practices.md;pages/ai/example_tools_comparisons.md;pages/ai/how_do_you_use_AI_to_develop_quality_research_software.md;pages/ai/practices/ci_pr_repository_agents.md;pages/ai/practices/constrained_local_tool_using_agents.md;pages/ai/practices/conversational_artefact_creation.md;pages/ai/practices/conversational_creation_with_zip_files_etc.md;pages/ai/practices/conversational_interaction.md;pages/ai/practices/editor_integrated_local_assistant.md;pages/ai/practices/ide_autocomplete_and_inline_suggestions.md;pages/ai/practices/managed_or_cloud_coding_agents.md;pages/ai/practices/no_genai_usage.md;pages/ai/practices/open_ended_autonomous_agents.md;pages/ai/practices/repository_aware_assistance.md;pages/ai/spectrum_of_intensity_of_ai_usage.md
+ai-assisted,,,,18,pages/ai.md;pages/ai/ai_intensity_considerations.md;pages/ai/ai_usecases_across_the_spectrum.md;pages/ai/cross_cutting_practices.md;pages/ai/example_tools_comparisons.md;pages/ai/how_do_you_use_AI_to_develop_quality_research_software.md;pages/ai/practices/ci_pr_repository_agents.md;pages/ai/practices/constrained_local_tool_using_agents.md;pages/ai/practices/conversational_artefact_creation.md;pages/ai/practices/conversational_creation_with_zip_files_etc.md;pages/ai/practices/conversational_interaction.md;pages/ai/practices/editor_integrated_local_assistant.md;pages/ai/practices/ide_autocomplete_and_inline_suggestions.md;pages/ai/practices/managed_or_cloud_coding_agents.md;pages/ai/practices/no_genai_usage.md;pages/ai/practices/open_ended_autonomous_agents.md;pages/ai/practices/repository_aware_assistance.md;pages/ai/spectrum_of_intensity_of_ai_usage.md
+llm,,,,18,pages/ai.md;pages/ai/ai_intensity_considerations.md;pages/ai/ai_usecases_across_the_spectrum.md;pages/ai/cross_cutting_practices.md;pages/ai/example_tools_comparisons.md;pages/ai/how_do_you_use_AI_to_develop_quality_research_software.md;pages/ai/practices/ci_pr_repository_agents.md;pages/ai/practices/constrained_local_tool_using_agents.md;pages/ai/practices/conversational_artefact_creation.md;pages/ai/practices/conversational_creation_with_zip_files_etc.md;pages/ai/practices/conversational_interaction.md;pages/ai/practices/editor_integrated_local_assistant.md;pages/ai/practices/ide_autocomplete_and_inline_suggestions.md;pages/ai/practices/managed_or_cloud_coding_agents.md;pages/ai/practices/no_genai_usage.md;pages/ai/practices/open_ended_autonomous_agents.md;pages/ai/practices/repository_aware_assistance.md;pages/ai/spectrum_of_intensity_of_ai_usage.md
+apache-airflow,,,,1,pages/tasks/computational_workflows.md
+apptainer,,,,1,pages/tasks/using_containers.md
+bottleneck,,,,1,pages/tasks/performance_profiling_and_optimization.md
+bus factor,,,,1,pages/tasks/software_maintenance.md
+career progression,,,,1,pages/tasks/credit_recognition_research_software.md
+changelog,,,,1,pages/tasks/software_maintenance.md
+code of conduct,,,,1,pages/tasks/code_of_conduct.md
+code quality,,,,1,pages/tasks/static_analysis.md
+code review,,,,1,pages/tasks/code_review.md
+community guidelines,,,,1,pages/tasks/code_of_conduct.md
+continuous deployment,,,,1,pages/tasks/ci_cd.md
+contribution,,,,1,pages/tasks/creating_good_readme.md
+contributor covenant,,,,1,pages/tasks/code_of_conduct.md
+contributor roles,,,,1,pages/tasks/credit_recognition_research_software.md
+credit,,,,1,pages/tasks/credit_recognition_research_software.md
+dependency scanning,,,,1,pages/tasks/research_software_security.md
+doi,,,,1,pages/tasks/credit_recognition_research_software.md
+galaxy,,,,1,pages/tasks/computational_workflows.md
+governance,,,,1,pages/tasks/code_of_conduct.md
+harassment policy,,,,1,pages/tasks/code_of_conduct.md
+installation,,,,1,pages/tasks/creating_good_readme.md
+linting,,,,1,pages/tasks/static_analysis.md
+nextflow,,,,1,pages/tasks/computational_workflows.md
+open science,,,,1,pages/tasks/credit_recognition_research_software.md
+orcid,,,,1,pages/tasks/credit_recognition_research_software.md
+parallelism,,,,1,pages/tasks/performance_profiling_and_optimization.md
+planning,,,,1,pages/tasks/software_management_planning.md
+pre-commit,,,,1,pages/tasks/static_analysis.md
+pypi,,,,1,pages/tasks/packaging_software.md
+recognition,,,,1,pages/tasks/credit_recognition_research_software.md
+refactoring,,,,1,pages/tasks/software_maintenance.md
+reporting process,,,,1,pages/tasks/code_of_conduct.md
+secrets management,,,,1,pages/tasks/research_software_security.md
+secure coding,,,,1,pages/tasks/research_software_security.md
+smp,,,,1,pages/tasks/software_management_planning.md
+snakemake,,,,1,pages/tasks/computational_workflows.md
+software maintenance,,,,1,pages/tasks/software_maintenance.md
+software management plan,,,,1,pages/tasks/software_management_planning.md
+software supply chain,,,,1,pages/tasks/research_software_security.md
+technical debt,,,,1,pages/tasks/software_maintenance.md
+type checking,,,,1,pages/tasks/static_analysis.md
+versioning,,,,1,pages/tasks/software_identifiers.md
+vulnerability management,,,,1,pages/tasks/research_software_security.md
+wdl,,,,1,pages/tasks/computational_workflows.md
+wms,,,,1,pages/tasks/computational_workflows.md
