@@ -13,14 +13,18 @@ script) and the report is written in the same folder as this script.
 --rsqkit is the RSQKit repository folder: the one that contains pages/, whose
 .md files hold the keywords in their front matter.
 
-Report: one row per distinct keyword that is NOT in the CSV
-(case-insensitive comparison).
+Report: one row per distinct keyword that is NOT in the CSV, for the pages
+where it is not already accompanied by a close canonical keyword (one that is
+also in the CSV). num_pages and pages therefore list only the pages still
+needing review.
 Columns: keyword in md not in csv, suggestion from csv keywords, similarity,
 related_by_words, num_pages, pages
 
 Two kinds of hints are given for each missing keyword:
   - suggestion / similarity: the closest CSV keyword by spelling (difflib),
-    only if similarity >= threshold (e.g. "containers" vs "container").
+    only if similarity >= threshold and it passes a morphology check (word
+    containment, or a prefix between the words the two keywords do not share).
+    This drops false friends such as "software citation" -> "software testing".
   - related_by_words: CSV keywords whose words are all contained in the
     keyword, or the other way round (e.g. "citation.cff" contains "cff";
     "citation" is contained in "code citation").
@@ -199,8 +203,10 @@ def main():
 
     n_sugg = sum(1 for r in rows if r[3])
     n_rel = sum(1 for r in rows if r[5])
+    n_missing = sum(1 for kw in by_kw if kw not in training)
+    print(f"Distinct keywords in RSQKit: {len(by_kw)} -> in CSV: {len(by_kw) - n_missing}, missing: {n_missing}")
+    print(f"Reported rows: {len(rows)} (after page screening)")
     print(f"Pages with keywords: {len(pages)}")
-    print(f"Distinct keywords in RSQKit: {len(by_kw)} -> in CSV: {len(by_kw) - len(rows)}, missing: {len(rows)}")
     print(f"Threshold: {a.threshold} -> missing keywords with a similar spelling in the CSV: {n_sugg}")
     print(f"Missing keywords related by words to a CSV keyword: {n_rel}")
     print(f"Pages skipped (canonical form already in the md): {skipped_pages}")
