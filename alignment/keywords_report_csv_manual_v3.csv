@@ -1,4 +1,3 @@
-"# NOTE: 'suggestion' (similar spelling) and 'related_by_words' are hints, not verdicts. Each missing keyword needs a manual decision."
 keyword in md not in csv,suggestion from csv keywords,similarity,related_by_words,num_pages,pages
 reproducibililty,reproducibility,0.97,,1,pages/tasks/future_proofing.md
 optimisation,optimization,0.92,,1,pages/tasks/performance_profiling_and_optimization.md
