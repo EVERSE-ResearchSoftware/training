@@ -13,14 +13,18 @@ script) and the report is written in the same folder as this script.
 --rsqkit is the RSQKit repository folder: the one that contains pages/, whose
 .md files hold the keywords in their front matter.
 
-Report: one row per distinct keyword that is NOT in the CSV
-(case-insensitive comparison).
+Report: one row per distinct keyword that is NOT in the CSV, for the pages
+where it is not already accompanied by a close canonical keyword (one that is
+also in the CSV). num_pages and pages therefore list only the pages still
+needing review.
 Columns: keyword in md not in csv, suggestion from csv keywords, similarity,
 related_by_words, num_pages, pages
 
 Two kinds of hints are given for each missing keyword:
   - suggestion / similarity: the closest CSV keyword by spelling (difflib),
-    only if similarity >= threshold (e.g. "containers" vs "container").
+    only if similarity >= threshold and it passes a morphology check (word
+    containment, or a prefix between the words the two keywords do not share).
+    This drops false friends such as "software citation" -> "software testing".
   - related_by_words: CSV keywords whose words are all contained in the
     keyword, or the other way round (e.g. "citation.cff" contains "cff";
     "citation" is contained in "code citation").
@@ -46,10 +50,10 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_CSV = SCRIPT_DIR.parent / "csv" / "keywords.csv"
 DEFAULT_OUT = SCRIPT_DIR / "keywords_report.csv"
 # Comment written as the first row of the report
-REPORT_NOTE = (
-    "# NOTE: 'suggestion' (similar spelling) and 'related_by_words' are hints, "
-    "not verdicts. Each missing keyword needs a manual decision."
-)
+# REPORT_NOTE = (
+#     "# NOTE: 'suggestion' (similar spelling) and 'related_by_words' are hints, "
+#     "not verdicts. Each missing keyword needs a manual decision."
+# )
 
 
 def load_training_keywords(path):
@@ -109,6 +113,31 @@ def threshold_type(value):
     return x
 
 
+def morphologically_related(kw, candidate):
+    """Cheap sanity check to discard false friends such as
+    'software citation' -> 'software testing'.
+
+    True when one word set contains the other, or when, after dropping the
+    words both keywords already share, some remaining word is a prefix of
+    another ('test' / 'testing', 'version' / 'versioning').
+    """
+    a, b = words(kw), words(candidate)
+    if a and (a <= b or b <= a):
+        return True
+    shared = a & b
+    rest_a, rest_b = a - shared, b - shared
+    return any(x.startswith(y) or y.startswith(x) for x in rest_a for y in rest_b)
+
+
+def best_suggestion(kw, pool, threshold):
+    """Best spelling suggestion from pool, after the morphology check."""
+    candidates = [t for t in pool if morphologically_related(kw, t)]
+    close = difflib.get_close_matches(kw, candidates, n=1, cutoff=threshold)
+    if not close:
+        return "", 0.0
+    return close[0], difflib.SequenceMatcher(None, close[0], kw).ratio()
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--rsqkit", required=True, help="Path to the RSQKit repository (the folder that contains pages/ with the .md files)")
@@ -132,15 +161,27 @@ def main():
         for kw in kws:
             by_kw[kw.lower()].add(page)
 
+    page_kws = {p: {k.lower() for k in kws} for p, kws in pages.items()}
+    covered = set(by_kw) & training   # keywords already in csv
+
     rows = []
+    skipped_pages = 0
     for kw, ps in by_kw.items():
         if kw in training:
             continue  # already in the CSV: not reported
-        sugg, sim = "", 0.0
-        close = difflib.get_close_matches(kw, training, n=1, cutoff=a.threshold)
-        if close:
-            sugg = close[0]
-            sim = difflib.SequenceMatcher(None, close[0], kw).ratio()
+
+        covered_like = set(difflib.get_close_matches(kw, covered, n=len(covered),
+                                                 cutoff=a.threshold))
+        before = len(ps)
+        ps = {p for p in ps if not (page_kws[p] & covered_like)}
+        skipped_pages += before - len(ps)
+        if not ps:
+            continue
+
+        sugg, sim = best_suggestion(kw, covered_like, a.threshold)
+        if not sugg:
+            sugg, sim = best_suggestion(kw, training, a.threshold)
+
         rel = related_by_words(kw, training_words)
         rows.append([kw, len(ps), ";".join(sorted(ps)), sugg, sim, rel])
 
@@ -155,17 +196,20 @@ def main():
     with open(a.out, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         # First row is a comment (starts with '#'), before the header
-        w.writerow([REPORT_NOTE])
-        w.writerow(["keyword in md not in csv", "suggestion from csv keywords", "similarity", "related_by_words", "num_pages", "pages"])
+        # w.writerow([REPORT_NOTE])
+        w.writerow(["keyword in Rsqkit pages md but not in Everse_training csv", "suggestion from Everse Training csv keywords", "similarity", "related_by_words", "num_pages", "pages"])
         for kw, n, ps, sugg, sim, rel in rows:
             w.writerow([kw, sugg, f"{sim:.2f}" if sugg else "", ";".join(rel), n, ps])
 
     n_sugg = sum(1 for r in rows if r[3])
     n_rel = sum(1 for r in rows if r[5])
+    n_missing = sum(1 for kw in by_kw if kw not in training)
+    print(f"Distinct keywords in RSQKit: {len(by_kw)} -> in CSV: {len(by_kw) - n_missing}, missing: {n_missing}")
+    print(f"Reported rows: {len(rows)} (after page screening)")
     print(f"Pages with keywords: {len(pages)}")
-    print(f"Distinct keywords in RSQKit: {len(by_kw)} -> in CSV: {len(by_kw) - len(rows)}, missing: {len(rows)}")
     print(f"Threshold: {a.threshold} -> missing keywords with a similar spelling in the CSV: {n_sugg}")
     print(f"Missing keywords related by words to a CSV keyword: {n_rel}")
+    print(f"Pages skipped (canonical form already in the md): {skipped_pages}")
     print(f"Report written to: {a.out}")
 
 
