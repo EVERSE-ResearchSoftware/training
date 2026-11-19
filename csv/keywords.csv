@@ -1,156 +1,460 @@
-Keywords,These are keywods (lowercase) to be used to tag training materials in TeSS and also as search terms in TeSS
-action,
-advanced,
-analysis code,
-automation,
-bandit,
-bearer,
-benchmarking,
-better software,
-c,
-c++,
-cd,
-cff,
-cffinit,
-ci,
-ci cd,
-ci/cd,
-cmake,
-code citation,
-code correctness,
-code test,
-code testing,
-codemeta,
-codemeta generator,
-collaborative environment,
-computational workflow,
-container,
-continuous integration,
-cookiecutter,
-creative commons license chooser,
-data analysis,
-debugging,
-dependabot,
-docker,
-documentation,
-doxygen,
-dvc,
-f-uji,
-fair,
-fair python cookiecutter,
-fairness,
-flexibility,
-functional suitability,
-git,
-github,
-github pages,
-gitlab,
-gitlab cicd,
-gitlab pages,
-gnu guix,
-good practices,
-good software practices,
-hermes,
-hermes workflow,
-howfairis,
-hpc,
-hugo,
-ide,
-integrated development environment,
-interaction capability,
-intermediate,
-javadoc,
-jenkins,
-julia,
-junit,
-jupyter,
-kubernetes,
-library,
-licence,
-license,
-logging,
-maintainability,
-matlab,
-metadata,
-mkdocs,
-module,
-nix,
-novice,
-optimisation,
-optimization,
-organising software project,
-package,
-package code,
-package software,
-packaging,
-packaging code,
-packaging software,
-pelican,
-performance efficiency,
-playwright,
-podman,
-profiling,
-programming language,
-prototype tool,
-publishing code,
-pytest,
-python,
-r,
-read the docs,
-read the docs,
-readability,
-readable code,
-readable code,
-readme,
-readthedocs,
-release,
-release code,
-release software,
-releasing code,
-releasing software,
-reliability,
-reproducibility,
-reproducible,
-reproducible environment,
-research infra software,
-research software engineering,
-reusability,
-reusable code,
-reusable software,
-reuse,
-rpm package manager,
-scanoss,
-score-p,
-security,
-selenium,
-sharing code,
-singularity,
-software citation,
-software correctness,
-software documentation,
-software engineering,
-software heritage,
-software infrastructure,
-software metadata,
-software project,
-software test,
-software testing,
-software tool,
-somef,
-somesy,
-sonarqube,
-source control,
-source control,
-sphinx,
-sqaaas,
-statistic code analysis,
-statistical,
-sustainability,
-testing,
-tox,
-travis ci,
-venv,
-version control,
-virtual environment,
-workflow,
-zenodo,
+Keywords
+academic
+academic software
+action
+advanced
+ai
+ai as an assistant
+ai carbon emissions
+ai coding assistance: main approaches
+ai lifecycle
+ai literacy
+analysis code
+ann optimization
+apicuron
+archer2
+arduino
+arduino nano
+artificial intelligence
+assembly
+assessment
+astronomy
+automation
+aws
+azure
+bandit
+bash
+bearer
+beginner
+benchmarking
+better software
+biocuration
+bioinformatics
+biological data
+bip scholar
+blog
+branch
+build
+business
+c
+c++
+carbon accounting
+carbon awareness
+carbon efficiency
+carbon emissions
+carbon footprint
+carpentries
+catalogue
+cd
+cff
+cffinit
+checklist
+ci
+ci cd
+ci/cd
+circular economy
+citation
+cite
+cli
+climate change
+climate change mitigation
+climate commitments
+climate science
+climate-friendly software development
+cloud
+cmake
+code
+code citation
+code correctness
+code optimization and acceleration
+code review
+code test
+code testing
+codemeta
+codemeta generator
+collaborate
+collaboration
+collaborative environment
+command line
+common workflow language
+compile
+computational research
+computational workflow
+computational workflows
+computer architecture
+computer science
+computing
+configure an ai extension in your ide: continue
+container
+container security
+continous integration
+continuous deployment
+continuous integration
+control
+convolution neural network
+cookiecutter
+cpu
+creative commons license chooser
+credit
+cs4575
+csrd
+css
+cuda
+cupy
+curriculum
+cwl
+data
+data analysis
+data center
+data centers
+data centres
+data management
+data science
+data visualization
+database
+debugging
+deep learning
+defensive coding
+dependabot
+dependency diagram
+deploying documentation
+digital environmental impact
+digital sobriety
+digital transformation
+digitization and co2
+dimension
+distributed training
+django
+dmp
+docker
+documentation
+doi
+doxygen
+dvc
+e-waste
+eco-tech
+ecological footprint
+ecology
+efficiency
+efficient deep learning
+electronic devices
+embodied carbon
+empirical software engineering
+energy
+energy and utilities
+energy efficiency
+energy efficiency measurement
+energy efficient programming
+engineering
+ensembl
+environment
+environment and resource management
+environmental impact
+environmental issue
+environmental policy
+environmental social and corporate governance
+epcc
+event
+f-uji
+fair
+fair python cookiecutter
+fairness
+feature
+flexibility
+fork
+fortran
+framework
+frugal ai
+functional suitability
+generative ai
+genomics
+geospatial
+ghg
+ghg protocol
+git
+git fundamentals
+gitbisect
+github
+github pages
+gitlab
+gitlab cicd
+gitlab pages
+glam
+gnu guix
+good practices
+good software practices
+gpu
+gpu computing
+gpu programming
+graph
+green ai
+green computing
+green it
+green software
+green software engineering
+greenhouse gas protocol
+hardware
+hardware efficiency
+helm chart
+hermes
+hermes workflow
+hosting providers
+howfairis
+hpc
+html
+hugo
+ict footprint
+ide
+identifiers
+image processing
+indicator
+indicators
+individual sustainability
+information systems
+information technology
+infrastructure
+integrate an mcp server in your ide
+integrated development environment
+integration tests
+interaction capability
+intermediate
+internet of things
+intrinsics
+javadoc
+javascript
+jenkins
+julia
+junit
+jupyter
+jupyter notebook
+jupyterlab
+key aspects of ai-assisted coding
+kubernetes
+lab skills
+lca
+lessons
+liberal arts
+library
+licence
+license
+licensing
+life cycle
+life cycle assessment
+life sciences
+lifecycle
+llm inference
+logging
+machine learning
+maestro
+maintainability
+make
+makefile
+manuscripts
+marcedit
+markdown
+material
+matlab
+matrix multiplication
+memory
+metadata
+metagenomics
+metrics
+metrics definition
+mkdocs
+model compression
+module
+mooc
+multi layer perceptron
+neural architecture search
+nix
+notebooks
+novice
+numba
+open
+open acc
+open science
+open source
+operational risks
+optimisation
+optimization
+organise software project
+organising software project
+package
+package code
+package software
+packaging
+packaging code
+packaging software
+parallel programming
+pelican
+performance
+performance efficiency
+playwright
+podman
+political sciences
+power
+pr
+preprocessing
+product footprinting
+profiling
+profiling code in python
+programming language
+project organization
+prototype tool
+pruning
+publication
+publishing
+publishing code
+pytest
+python
+python script
+quality
+quality control
+quantization
+r
+read the docs
+readability
+readable code
+readme
+readthedocs
+rebase
+recognition
+recycling
+registry
+release
+release code
+release software
+releasing
+releasing code
+releasing software
+reliability
+repo
+repository
+reproducibility
+reproducible
+reproducible environment
+reproducible environments
+research
+research computing
+research infra software
+research software
+research software development
+research software engineer
+research software engineering
+research software engineers
+research software stories
+resource efficiency
+responsible ai
+rest api
+restful api
+reusability
+reusable code
+reusable software
+reuse
+robust
+rpm package manager
+rse
+scanoss
+sci
+scientific computin
+score-p
+scripts
+secure development
+security
+security and privacy considerations
+selenium
+self-assessment
+serial
+sharing code
+shell
+simd
+singularity
+singularity basics to package software
+snakemake
+social justice
+social science
+social sustainability
+software
+software carbon intensity
+software carbon intensity (sci)
+software citation
+software correctness
+software design
+software development
+software documentation
+software engineering
+software heritage
+software infrastructure
+software metadata
+software project
+software quality
+software test
+software testing
+software tool
+somef
+somesy
+sonarqube
+source control
+sphinx
+sqaaas
+sql
+sse
+static code analysis
+statistic code analysis
+statistical
+supercomputers
+supervised learning
+supervised learning: basic methods
+supervised learning: using real data and preprocessing
+sustainability
+sustainable computing
+sustainable design
+sustainable development
+sustainable hpc
+sustainable software
+sustainable software engineering
+sustainable systems
+sustainable technologies
+task automation
+tasks
+techradar
+template
+testing
+this material is an introduction to machin learning with python. topics are: unsupervised learning: dimensionality reductiong
+tinyml
+tool
+tools
+tox
+tracking
+trainer
+training
+travis ci
+tu delft
+tum
+ucl
+unit tests
+unix
+unsupervised learning
+unsupervised learning: clustering
+user experience
+user experience design
+ux
+uxd
+vectors
+venv
+version
+version control
+version control basics
+vibe coding
+vim
+virtual environment
+vtune profiler
+water sustainability
+web interfaces
+webinar
+workflow
+workflows
+workshop
+workshops
+x86
+zenodo
