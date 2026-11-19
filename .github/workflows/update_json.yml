@@ -31,6 +31,10 @@ jobs:
       run: |
         python src/download_csv.py
 
+    - name: Update keywords.csv
+      run: |
+        python src/update_keywords.py
+
     - name: Convert to json
       run: |
         python src/csv_to_json.py

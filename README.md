@@ -68,15 +68,17 @@ This repository fetches through GitHub Actions training materials from a Google 
 └── src
     ├── config.yaml
     ├── csv_to_json.py
-    └── download_csv.py
+    ├── download_csv.py
+    └── update_keywords.py
 ```
 
 #### `.github/workflows/update_json.yaml`, the main workflow
 
 1. It will run every day at 1:00AM or when a push to the main branch is done
 2. `src/download_csv.py` is called and downloads the sheets of a given Google spreadsheet under a newly created `/csv` directory.
-3. Then `src/csv_to_json.py` takes the csv's in the `/csv` directory, converts them as `.json` files and stores them in a created `/json` directory.
-4. The workflow then add, commits and push the changes to main.
+3. `src/update_keywords.py` is called, gets all materials' keywords from <https://everse-training.app.cern.ch/materials>, compares them with `keywords.csv` and appends all newly added keywords from the catalogue (useful for the RSQKit).
+4. Then `src/csv_to_json.py` takes the csv's in the `/csv` directory, converts them as `.json` files and stores them in a created `/json` directory.
+5. The workflow then add, commits and push the changes to main.
 
 #### `src/config.yaml`, the configuration file
 
